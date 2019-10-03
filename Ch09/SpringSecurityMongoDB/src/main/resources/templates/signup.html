@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Boot Security 5 and MongoDB Example</title>
+    </head>
+    <body>
+
+    <!-- user: <div th:text="${user}"></div>
+     successmessage: <div th:text="${successMessage}"></div>
+     message: <div th:text="${message}"></div>-->
+
+
+    <form class="form-signin" action="/signup" method="post">
+                <h1>Add a new user to the MongoDB.</h1></br>
+
+                <label>Email Address:</label>
+                <input type="email" name="email" id="inputEmail" placeholder="Emailaddress" required="" /></br>
+                <label for="inputPassword" >Password:</label>
+                <input type="password" name="password" id="inputPassword" placeholder="Password" required="" /></br>
+
+                <label>Role:</label>
+                <select name="role" id="role" required>
+                    <option value="USER">USER</option>
+                    <option value="ADMIN">ADMIN</option>
+                </select>
+                </br>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Add new user</button>
+            </form>
+    </body>
+</html>

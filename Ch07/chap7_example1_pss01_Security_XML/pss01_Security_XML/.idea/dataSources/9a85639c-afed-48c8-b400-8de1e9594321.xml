@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="jdbc:hsqldb:file:C:\hsqldb-2.4.1\/">
+  <database-model serializer="dbm" dbms="HSQLDB" family-id="HSQLDB" format-version="4.15">
+    <root id="1">
+      <ServerVersion>2.4.0</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="INFORMATION_SCHEMA"/>
+    <schema id="4" parent="2" name="PUBLIC">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="5" parent="2" name="SYSTEM_LOBS"/>
+    <table id="6" parent="4" name="PEOPLE"/>
+    <table id="7" parent="4" name="ROLES"/>
+    <column id="8" parent="6" name="NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="9" parent="6" name="KEY">
+      <Position>2</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+    </column>
+    <index id="10" parent="6" name="SYS_IDX_SYS_PK_10957_10958">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="11" parent="6" name="SYS_PK_10957">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="12" parent="7" name="NAME">
+      <Position>1</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="13" parent="7" name="ROLE">
+      <Position>2</Position>
+      <DataType>VARCHAR(50)|12s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="14" parent="7" name="SYS_IDX_SYS_PK_10961_10963">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="15" parent="7" name="SYS_IDX_FK_AUTHORITIES_USERS_10966">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+    </index>
+    <key id="16" parent="7" name="SYS_PK_10961">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>NAME</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="17" parent="7" name="FK_AUTHORITIES_USERS">
+      <ColNames>NAME</ColNames>
+      <RefTableName>PEOPLE</RefTableName>
+      <RefKeyName>SYS_PK_10957</RefKeyName>
+      <RefColNames>NAME</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

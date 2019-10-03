@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/webflow-config
+       http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <property name="flowRegistry" ref="activationFlowRegistry"/>
+    </bean>
+
+    <flow:flow-builder-services id="flowBuilderServices"
+                                view-factory-creator="mvcViewFactoryCreator"/>
+
+    <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="viewResolvers" ref="jspViewResolver"/>
+    </bean>
+
+    <flow:flow-registry id="activationFlowRegistry" flow-builder-services="flowBuilderServices">
+        <flow:flow-location id="product" path="/WEB-INF/flows/product.xml"/>
+    </flow:flow-registry>
+
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+        <property name="flowExecutor" ref="activationFlowExecutor"/>
+    </bean>
+    <flow:flow-executor id="activationFlowExecutor" flow-registry="activationFlowRegistry"/>
+
+    <flow:flow-execution-listeners>
+     <flow:listener ref="securityFlowExecutionListener" />
+    </flow:flow-execution-listeners>
+    
+    <bean id="securityFlowExecutionListener" 
+     class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
+    
+</beans>

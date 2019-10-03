@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="struts-example:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>struts-example</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="struts-example.war">
+      <element id="artifact" artifact-name="struts-example:war exploded" />
+    </root>
+  </artifact>
+</component>

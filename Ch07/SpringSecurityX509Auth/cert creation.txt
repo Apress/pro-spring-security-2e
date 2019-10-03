@@ -1,0 +1,40 @@
+## Server
+# Generate server private key and self-signed certificate in one step
+openssl req -x509 -newkey rsa:4096 -keyout serverPrivateKey.pem -out server.crt -days 3650 -nodes
+
+
+# Create PKCS12 keystore containing private key and related self-sign certificate
+openssl pkcs12 -export -out keyStore.p12 -inkey serverPrivateKey.pem -in server.crt
+
+password: changeit
+
+
+# Generate server trust store from server certificate 
+keytool -import -trustcacerts -alias root -file server.crt -keystore trustStore.jks
+
+
+--------------------------------------------------------------
+
+
+
+## Client
+# Generate client's private key and a certificate signing request (CSR)
+openssl req -new -newkey rsa:4096 -out request.csr -keyout myPrivateKey.pem -nodes
+
+
+## Server
+# Sign client's CSR with server private key and a related certificate
+openssl x509 -req -days 360 -in request.csr -CA server.crt -CAkey serverPrivateKey.pem -CAcreateserial -out nardone.crt -sha256
+
+
+
+
+## Client
+# Verify client's certificate
+openssl x509 -text -noout -in nardone.crt
+
+
+# Create PKCS12 keystore containing client's private key and related self-sign certificate 
+openssl pkcs12 -export -out client_nardone.p12 -inkey myPrivateKey.pem -in nardone.crt -certfile myCertificate.crt
+
+

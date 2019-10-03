@@ -1,0 +1,68 @@
+
+C:\Varie\Apress\Pro spring security\SampleCode\chapter7\SpringSecurityX509Auth\certificates\server>openssl req -x509 -newkey rsa:4096 -keyout serverPrivateKey.pem -out server.crt -days 3650 -nodes
+Generating a RSA private key
+...................................................................................................++++
+................................................................................................................................................................................++++
+writing new private key to 'serverPrivateKey.pem'
+-----
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) [AU]:IT
+State or Province Name (full name) [Some-State]:Naples
+Locality Name (eg, city) []:Naples
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:Apress
+Organizational Unit Name (eg, section) []:Apress Dev
+Common Name (e.g. server FQDN or YOUR name) []:DevServer
+Email Address []:massimonardone@gmail.com
+
+C:\Varie\Apress\Pro spring security\SampleCode\chapter7\SpringSecurityX509Auth\certificates\server>openssl pkcs12 -export -out keyStore.p12 -inkey serverPrivateKey.pem -in server.crt
+Enter Export Password:
+Verifying - Enter Export Password:
+
+C:\Varie\Apress\Pro spring security\SampleCode\chapter7\SpringSecurityX509Auth\certificates\server>keytool -import -trustcacerts -alias root -file server.crt -keystore trustStore.jks
+Enter keystore password:
+Re-enter new password:
+Owner: EMAILADDRESS=massimonardone@gmail.com, CN=DevServer, OU=Apress Dev, O=Apress, L=Naples, ST=Naples, C=IT
+Issuer: EMAILADDRESS=massimonardone@gmail.com, CN=DevServer, OU=Apress Dev, O=Apress, L=Naples, ST=Naples, C=IT
+Serial number: 3b00eaff943320f795b2e01b620f2caad110a936
+Valid from: Wed May 15 12:28:25 EEST 2019 until: Sat May 12 12:28:25 EEST 2029
+Certificate fingerprints:
+         SHA1: 33:A4:54:23:A4:CF:DB:DE:D1:5C:C8:62:56:19:B2:40:8D:86:F7:54
+         SHA256: 5F:F6:2B:DE:7A:BD:C6:59:CB:DF:73:21:BB:D2:FF:E6:1C:14:06:03:55:06:4A:A8:A4:6D:76:E1:2A:0F:42:AF
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 4096-bit RSA key
+Version: 3
+
+Extensions:
+
+#1: ObjectId: 2.5.29.35 Criticality=false
+AuthorityKeyIdentifier [
+KeyIdentifier [
+0000: 61 52 F4 69 77 70 10 B3   7E EF DD 23 A2 3F 59 66  aR.iwp.....#.?Yf
+0010: 8B 81 F6 49                                        ...I
+]
+]
+
+#2: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+#3: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 61 52 F4 69 77 70 10 B3   7E EF DD 23 A2 3F 59 66  aR.iwp.....#.?Yf
+0010: 8B 81 F6 49                                        ...I
+]
+]
+
+Trust this certificate? [no]:  yes
+Certificate was added to keystore
+
+C:\Varie\Apress\Pro spring security\SampleCode\chapter7\SpringSecurityX509Auth\certificates\server>

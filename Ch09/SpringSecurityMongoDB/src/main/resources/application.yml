@@ -1,0 +1,9 @@
+spring.data.mongodb.database: springsecuritymongodb
+spring.data.mongodb.host: localhost
+spring.data.mongodb.port: "27017"
+server.error.whitelabel.enabled: "false"
+spring.mvc.view.prefix: /resources/templates
+spring.mvc.view.suffix: .html
+spring.freemarker.template-loader-path: /templates
+spring.freemarker.expose-request-attributes: "true"
+spring.freemarker.expose-spring-macro-helpers: "true"

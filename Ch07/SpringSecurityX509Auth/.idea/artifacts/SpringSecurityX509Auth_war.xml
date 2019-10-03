@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringSecurityX509Auth:war">
+    <output-path>$PROJECT_DIR$/SpringSecurityX509Auth/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SpringSecurityX509Auth</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="SpringSecurityX509Auth-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="SpringSecurityX509Auth:war exploded" />
+    </root>
+  </artifact>
+</component>

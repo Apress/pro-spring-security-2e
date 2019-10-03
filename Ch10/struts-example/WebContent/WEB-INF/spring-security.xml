@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+             xsi:schemaLocation="
+      http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security-4.2.xsd
+      http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd"
+>
+<global-method-security pre-post-annotations="enabled"></global-method-security>
+   <http auto-config="false" use-expressions="true">
+        <intercept-url pattern="/welcome" access="permitAll"/>
+        <intercept-url pattern="/**" access="isAuthenticated()"/>
+        <form-login authentication-success-handler-ref="awareAuthenticationSuccessHandler" />
+
+    <logout logout-success-url="/logout" logout-url="/j_spring_security_logout" invalidate-session="true"/>
+    </http>
+    <beans:bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler" name="awareAuthenticationSuccessHandler"/>
+    <beans:bean id ="passwordEncoder" class = "org.springframework.security.crypto.password.NoOpPasswordEncoder" factory-method = "getInstance" />
+
+    <authentication-manager>
+        <authentication-provider>
+            <user-service>
+                <user name="admin" password="admin123" authorities="ROLE_USER"/>
+                <user name="massimo" password="massimo123" authorities="ROLE_USER"/>
+            </user-service>
+        </authentication-provider>
+    </authentication-manager>
+</beans:beans>

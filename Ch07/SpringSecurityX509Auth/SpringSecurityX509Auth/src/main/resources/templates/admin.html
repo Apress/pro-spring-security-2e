@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <title>Spring Security 5 and LDAP.</title>
+</head>
+<body>
+<h2>Welcome: <br/> <div th:text="${currentUser}"></div></h2>
+<h2>You are succesfully logged as an Admin!</h2>
+
+
+<div sec:authorize="isAuthenticated()">
+    This content is only shown to authenticated users.
+</div>
+<div sec:authorize="hasAnyAuthority('ROLE_USER')">
+    This content is only shown to administrators.
+</div>
+<br/>
+<form action="/logout" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+</body>
+</html>

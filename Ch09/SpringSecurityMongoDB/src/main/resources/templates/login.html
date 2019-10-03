@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spinrg Boot Security 5 and MongoDB</title>
+</head>
+<body>
+
+
+<!-- user: <div th:text="${user}"></div>
+successmessage: <div th:text="${successMessage}"></div>
+message: <div th:text="${message}"></div> -->
+
+<form th:action="@{/login}" method="post">
+    <h1>Please login as user or admin:</h1>
+    <div th:if="${param.error}">
+        Invalid email and password.
+    </div>
+    <label for="inputEmail">Email Address:</label>
+    <input type="email" name="email" id="inputEmail" placeholder="Email" required="" /></br>
+    <label for="inputPassword">Password:</label>
+    <input type="password" name="password" id="inputPassword" placeholder="Password" required="" /><br>
+    <button type="submit">Login</button></br></br>
+</form>
+<form th:action="@{/signup}" method="get">
+    <button type="Submit">Signup as a new user</button>
+</form>
+</div>
+</body>
+</html>

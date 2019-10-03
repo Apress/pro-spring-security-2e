@@ -1,0 +1,9 @@
+spring:
+  ldap:
+
+    urls: ldap://localhost:10389
+    base: dc=example,dc=com
+    username: uid=admin,ou=system
+    password: secret
+
+

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="webflow-example:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>webflow-example</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="webflow-example.war">
+      <element id="artifact" artifact-name="webflow-example:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.thymeleaf.extras:thymeleaf-extras-springsecurity3:unknown">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity3/unknown/thymeleaf-extras-springsecurity3-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity3/unknown/thymeleaf-extras-springsecurity3-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/thymeleaf/extras/thymeleaf-extras-springsecurity3/unknown/thymeleaf-extras-springsecurity3-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

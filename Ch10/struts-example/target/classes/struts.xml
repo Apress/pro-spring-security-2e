@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+ <struts>  
+ <constant name="struts.action.excludePattern" value="/j_spring_security_check.*,.*\\.j_spring_security_check"/>  
+   <package name="default" namespace="/" extends="struts-default">  
+     <action name="welcome">
+      <result>welcome.jsp</result>  
+     </action> 
+     <action name="helloWorld" class="com.apress.pss.struts.HelloWorldAction">  
+       <result name="SUCCESS">admin.jsp</result>  
+     </action>  
+     <action name="logout">
+      <result>welcome.jsp</result>  
+     </action>
+    </package>  
+ </struts>  
