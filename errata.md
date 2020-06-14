@@ -1,13 +1,10 @@
-# Errata for *Book Title*
+# Errata for *Pro Spring Security*
 
-On **page xx** [Summary of error]:
+On **page 56** [code]:
  
-Details of error here. Highlight key pieces in **bold**.
+"Next, create the needed .jsp files under a new project directory called WebContent/ WEB-INF/pages/." should be:
 
-***
+Next, create the needed .jsp files under a new project directory called webapp/WEB-INF/views/.
+]
 
-On **page xx** [Summary of error]:
- 
-Details of error here. Highlight key pieces in **bold**.
 
-***
