@@ -11,7 +11,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <properties>
-    <springframework.version>5.1.5.RELEASE</springframework.version>
+    <springframework.version>5.2.24.RELEASE</springframework.version>
     <springsecurity.version>5.1.5.RELEASE</springsecurity.version>
   </properties>
 
